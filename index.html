@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Inventory System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div class="login-container" id="loginPage">
+        <h2>Login</h2>
+        <form onsubmit="event.preventDefault(); login();">
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <!-- Inventory Dashboard (Hidden by Default) -->
+    <div class="dashboard-container" id="dashboardPage" style="display: none;">
+        <nav class="navbar">
+            <h2>Inventory Management</h2>
+            <ul class="nav-links">
+                <li><a href="#sales">Sales</a></li>
+                <li><a href="#inventory">Inventory</a></li>
+                <li><a href="#tracker">Tracker</a></li>
+            </ul>
+            <button onclick="logout()">Logout</button>
+        </nav>
+
+        <div class="inventory-table">
+            <button onclick="createItem()">Create Item</button>
+            <button onclick="reloadInventory()">Reload Inventory</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryBody"></tbody>
+                <tr class="total-row">
+                    <td>Total Gallons</td>
+                    <td id="totalGallons">0</td>
+                    <td>-</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Load JavaScript at the end of the body -->
+    <script src="script.js"></script>
+
+</body>
+</html>
